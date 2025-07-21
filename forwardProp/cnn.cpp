@@ -6,7 +6,8 @@
 void top( 
 	 fixedP inputData  [INPUT_SIZE],
 	 fixedP outputData [OUTPUT_SIZE],
-	 fixedP paramVector[NUM_PARAMETERS] 
+	 fixedP paramVector[NUM_PARAMETERS],
+	 volatile fixedP* intermediateResultBuffer,		// AXI interface to DDR for intermediate results
 
 ) {
 
@@ -19,7 +20,10 @@ void top(
 #pragma HLS bind_storage  variable=paramVector type=ram_1p  impl=bram 
 #pragma HLS bind_storage  variable=inputData type=ram_1p  impl=bram 
 #pragma HLS bind_storage  variable=outputData type=ram_1p  impl=bram 
+
 #pragma HLS INTERFACE s_axilite port=return   bundle=CTRL_BUS /* Just means that we have start and stop signals*/ 
+#pragma HLS INTERFACE mode=m_axi port=intermediateResultBuffer 	bundle=backpropValues depth=MAX_NUM_WORDS
+
 
 #include "model_impl.h" 
 }

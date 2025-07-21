@@ -157,9 +157,6 @@ void hiddenLayerBPFC(
     fixedP bufferTwo[10000];
 
 
-   
-    
-
     // step1
 
 

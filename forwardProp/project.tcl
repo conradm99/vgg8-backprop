@@ -24,8 +24,8 @@ create_clock -period 20 -name default
 get_clock_uncertainty default
 csim_design 
 #-ldflags {-std=c++11} -clean -O -compiler gcc
-csynth_design
-cosim_design 
+#csynth_design
+#cosim_design 
 #-compiler gcc -ldflags {-std=c++11} -tool xsim
 
 report_timing

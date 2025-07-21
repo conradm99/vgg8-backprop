@@ -1,0 +1,69 @@
+
+****** Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2023.2 (64-bit)
+  **** SW Build 4023990 on Oct 11 2023
+  **** IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+  **** SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source /tools/Xilinx/Vitis_HLS/2023.2/scripts/vitis_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running '/tools/Xilinx/Vitis_HLS/2023.2/bin/unwrapped/lnx64.o/vitis_hls'
+INFO: [HLS 200-10] For user 'miszczak-c' on host 'conrad-workstation' (Linux_x86_64 version 6.8.0-60-generic) on Wed Jul 16 14:59:24 EDT 2025
+INFO: [HLS 200-10] On os Ubuntu 22.04.5 LTS
+INFO: [HLS 200-10] In directory '/home/miszczak-c/Documents/miszczak_projects/vgg8/forwardProp'
+INFO: [HLS 200-2053] The vitis_hls executable is being deprecated. Consider using vitis-run --mode hls --tcl
+Sourcing Tcl script 'project.tcl'
+INFO: [HLS 200-1510] Running: open_project viv_hls_prj 
+INFO: [HLS 200-10] Opening project '/home/miszczak-c/Documents/miszczak_projects/vgg8/forwardProp/viv_hls_prj'.
+INFO: [HLS 200-1510] Running: set_top top 
+INFO: [HLS 200-1510] Running: add_files cnn.cpp 
+INFO: [HLS 200-10] Adding design file 'cnn.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files core.h 
+INFO: [HLS 200-10] Adding design file 'core.h' to the project
+INFO: [HLS 200-1510] Running: add_files conv.h 
+INFO: [HLS 200-10] Adding design file 'conv.h' to the project
+INFO: [HLS 200-1510] Running: add_files pooling.h 
+INFO: [HLS 200-10] Adding design file 'pooling.h' to the project
+INFO: [HLS 200-1510] Running: add_files FullyConnected.h 
+INFO: [HLS 200-10] Adding design file 'FullyConnected.h' to the project
+INFO: [HLS 200-1510] Running: add_files utils.h 
+INFO: [HLS 200-10] Adding design file 'utils.h' to the project
+INFO: [HLS 200-1510] Running: add_files input_bpsk.h 
+INFO: [HLS 200-10] Adding design file 'input_bpsk.h' to the project
+INFO: [HLS 200-1510] Running: add_files params.h 
+INFO: [HLS 200-10] Adding design file 'params.h' to the project
+INFO: [HLS 200-1510] Running: add_files model_impl.h 
+INFO: [HLS 200-10] Adding design file 'model_impl.h' to the project
+INFO: [HLS 200-1510] Running: add_files model_consts.h 
+INFO: [HLS 200-10] Adding design file 'model_consts.h' to the project
+INFO: [HLS 200-1510] Running: add_files TestBench.cpp 
+INFO: [HLS 200-10] Adding design file 'TestBench.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb TestBench.cpp -cflags -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas 
+INFO: [HLS 200-10] Adding test bench file 'TestBench.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution cnn_synth 
+INFO: [HLS 200-10] Opening solution '/home/miszczak-c/Documents/miszczak_projects/vgg8/forwardProp/viv_hls_prj/cnn_synth'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 20ns.
+INFO: [HLS 200-1611] Setting target device to 'xczu9eg-ffvb1156-2-e'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2023.2%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1510] Running: set_part xczu9eg-ffvb1156-2-e 
+INFO: [HLS 200-1510] Running: create_clock -period 20 -name default 
+INFO: [HLS 200-1510] Running: csim_design 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+   Compiling ../../../../TestBench.cpp in debug mode
+   Generating csim.exe
+First 10 inputData values:
+0.906066 -0.951976 -0.925046 -0.969310 1.060263 0.955179 0.965812 -0.986051 1.115137 -0.937117 
+Conv Layer 1 out = [0.320331,0.339253,-0.244791,0.132690,0.511730,-0.113610,0.418198,0.486966,0.410435,-0.548879,-0.175502,-0.229285,0.109830,0.001659,-0.169932,-0.627677,0.475671,0.162026,-0.250290,0.016181,0.514339,0.751478,0.646815,1.122331,];Seen: -3.162525 Seen: -2.115611 Seen: -1.880360 Seen: -2.677057 Seen: -3.129570 Seen: -2.617726 Seen: -2.722197 Seen: -2.797294 Seen: -3.172572 Seen: -2.341590 Seen: -2.688510 Seen: -2.885833 Seen: -3.214929 Seen: -2.828297 Seen: -2.082453 Seen: -2.358169 Seen: -2.165915 Seen: -1.085133 Seen: -0.310948 Seen: -4.410847 Seen: -3.880147 Seen: -4.087625 Seen: -3.727380 Seen: -3.013554 out = [-3.162525,-2.115611,-1.880360,-2.677057,-3.129570,-2.617726,-2.722197,-2.797294,-3.172572,-2.341590,-2.688510,-2.885833,-3.214929,-2.828297,-2.082453,-2.358169,-2.165915,-1.085133,-0.310948,-4.410847,-3.880147,-4.087625,-3.727380,-3.013554,];Max index: 18
+Modulation: 64QAM
+Hyperclass: QAM
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 72.8 seconds. CPU system time: 4.48 seconds. Elapsed time: 77.29 seconds; current allocated memory: 0.000 MB.
+No valid function name found, will report all functions available.
+Functions available in this design:
+Abnormal program termination (11)
+Please check '/home/miszczak-c/Documents/miszczak_projects/vgg8/forwardProp/hs_err_pid41353.log' for details
+segfault in /tools/Xilinx/Vitis_HLS/2023.2/bin/unwrapped/lnx64.o/vitis_hls -exec vitis_hls -f project.tcl, exiting...

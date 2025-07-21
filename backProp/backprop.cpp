@@ -7,7 +7,8 @@ void top(
 	 volatile fixedP* intermediateResultBuffer,
 	 volatile fixedP* postActPrevLayer,
 	 volatile fixedP* outputGradients,
-	 volatile fixedP* weights
+	 volatile fixedP* weights,
+	 volatile fixedP* bias
 
 ) {
 

@@ -57,30 +57,36 @@ ReLU
 maxPooling1D
 <INPUT_DEPTH_14, INPUT_ROWS_14, INPUT_COLS_14, POOL_ROW_14, POOL_COL_14>
 (outputReLULayer_13, outputMaxPool1DLayer_14);
-
+// -------------------------------------------------------------- Start placing intermediate feature maps into DDR ----------------------------------
 flattenLayer
 <INPUT_DEPTH_15, INPUT_ROWS_15, INPUT_COLS_15>
 (outputMaxPool1DLayer_14, outputFlattenLayer_15);
+memcpy((fixedP*)intermediateResultBuffer+DRR_OFFSET_0, (const fixedP*)outputFCLayer_15, NUM_NEURONS_15 * sizeof(fixedP));
 
 fullyConnectedLayer
 <INPUT_SIZE_15, NUM_NEURONS_15, LINEAR>
 (outputFlattenLayer_15, outputFCLayer_15, paramVector + 8608);
+memcpy((fixedP*)intermediateResultBuffer+DRR_OFFSET_1, (const fixedP*)outputFCLayer_15, NUM_NEURONS_15 * sizeof(fixedP));
 
 ReLU
 <INPUT_DEPTH_16, INPUT_ROWS_16, INPUT_COLS_16>
 (outputFCLayer_15, outputReLULayer_16, 0 );
+memcpy((fixedP*)intermediateResultBuffer+DDR_OFFSET_2, (const fixedP*)outputFCLayer_15, RELU_OUTPUT_SIZE_16 * sizeof(fixedP));
 
 fullyConnectedLayer
 <INPUT_SIZE_17, NUM_NEURONS_17, LINEAR>
 (outputReLULayer_16, outputFCLayer_17, paramVector + 418308);
+memcpy((fixedP*)intermediateResultBuffer+DDR_OFFSET_3, (const fixedP*)outputFCLayer_15, NUM_NEURONS_17 * sizeof(fixedP));
 
 ReLU
 <INPUT_DEPTH_18, INPUT_ROWS_18, INPUT_COLS_18>
 (outputFCLayer_17, outputReLULayer_18, 0 );
+memcpy((fixedP*)intermediateResultBuffer+DDR_OFFSET_4, (const fixedP*)outputFCLayer_15, RELU_OUTPUT_SIZE_18 * sizeof(fixedP));
 
 fullyConnectedLayer
 <INPUT_SIZE_19, NUM_NEURONS_19, LINEAR>
 (outputReLULayer_18, outputFCLayer_19, paramVector + 428408);
+memcpy((fixedP*)intermediateResultBuffer+DDR_OFFSET_5, (const fixedP*)outputFCLayer_15,NUM_NEURONS_19 * sizeof(fixedP));
 
 for (int idx = 0; idx < OUTPUT_SIZE; idx++)
 	outputData[idx] = outputFCLayer_19[idx];
