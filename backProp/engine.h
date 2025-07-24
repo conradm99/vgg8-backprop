@@ -126,7 +126,7 @@ void transpose(fixedP* matrix, fixedP* transposed) {
 
 
 
-template<int NUM_NEURONS, int INPUT_SIZE, int PREV_LAYER_INPUT_SIZE> // 84, 120, 10
+template<int NUM_NEURONS, int INPUT_SIZE, int PREV_LAYER_INPUT_SIZE> 
 void hiddenLayerBPFC(
     fixedP* inputData,                                      // pre activation output of current layer (generate in pytorch)
     fixedP* postAct_prevlayer,                              // post activation output from the previous layer (layer l-1)

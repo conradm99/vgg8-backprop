@@ -228,12 +228,15 @@ fixedP outputFCLayer_19 [NUM_NEURONS_19];
 
 
 
-const int NUM_WORDS     = ______;
-const int DDR_OFFSET_0  = 0;                                     // Flatten layer output stored here
-const int DDR_OFFSET_1  = DDR_OFFSET_0  + FLATTEN_OUTPUT_SIZE_15 // FC Layer 1 output stored here
-const int DDR_OFFSET_2  = DDR_OFFSET_1  + NUM_NEURONS_15;       // ReLU layer 1 output stored here
-const int DDR_OFFSET_3  = DDR_OFFSET_2  + RELU_OUTPUT_SIZE_16; // FC Layer 2 output stored here
-const int DDR_OFFSET_4  = DDR_OFFSET_3  + NUM_NEURONS_17;      // ReLu layer 2 output stored here 
-const int DDR_OFFSET_5  = DDR_OFFSET_4  + RELU_OUTPUT_SIZE_18; // Final layer output stored here
+const int NUM_WORDS     = 500000;                                   // Max size of a given DDR message, this sets the AXI buffer size 
+const int DDR_OFFSET_0  = 0;                                        // Flatten layer output stored here
+const int DDR_OFFSET_1  = DDR_OFFSET_0  + FLATTEN_OUTPUT_SIZE_15;   // FC Layer 1 output stored here
+const int DDR_OFFSET_2  = DDR_OFFSET_1  + NUM_NEURONS_15;           // ReLU layer 1 output stored here
+const int DDR_OFFSET_3  = DDR_OFFSET_2  + RELU_OUTPUT_SIZE_16;      // FC Layer 2 output stored here
+const int DDR_OFFSET_4  = DDR_OFFSET_3  + NUM_NEURONS_17;           // ReLu layer 2 output stored here 
+const int DDR_OFFSET_5  = DDR_OFFSET_4  + RELU_OUTPUT_SIZE_18;      // Final layer output stored here
+
+
+
 
 #endif
